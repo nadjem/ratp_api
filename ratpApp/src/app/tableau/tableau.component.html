@@ -1,0 +1,42 @@
+<nav class="navbar fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="#">{{title}}</a>
+</nav>
+<div class="container tableau">
+<div class="row">
+  <div class="col-md-6">
+
+      <form class="form-inline" [formGroup]="searchForm" (ngSubmit)="onSubmit(searchForm.value)">
+
+      <input type="text" id="searchInput" [formControl]="searchForm.controls['searchInput']" class="form-control" placeholder="code postale, ville ou nom du commerce" aria-label="code postale ou ville" aria-describedby="basic-addon2">
+
+        <button class="btn btn-outline-secondary" type="submit">rechercher</button>
+
+
+      </form>
+
+  </div>
+</div>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Code postale</th>
+    <th scope="col">Ville</th>
+    <th scope="col">
+      <button *ngIf="!sorted" (click)="sortIt()"><i class="fas fa-sort"></i></button>
+      <button *ngIf="sorted" (click)="unSortIt()"><i class="fas fa-sort"></i></button>
+    </th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let data of ratpData?.records | paginate: { itemsPerPage: 10, currentPage: p }; let i = index ">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{data?.fields?.tco_libelle}}</td>
+    <td>{{data?.fields?.code_postal}}</td>
+    <td>{{data?.fields?.ville}}</td>
+  </tr>
+  </tbody>
+</table>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>

@@ -1,0 +1,26 @@
+@import "color";
+@import "font";
+body{
+  color: $ratpColorBleu1;
+  font-family: $poiret;
+}
+
+
+.table td, .table th {
+  padding: .75rem;
+  vertical-align: top;
+  background-color: white;
+  border-top: 1px solid $ratpColorVert1!important;
+}
+
+.navbar-brand{
+  color: $ratpColorVert2;
+}
+
+.navbar{
+  background-color: $bgColor;
+}
+
+.tableau{
+  margin-top: 61px;
+}
