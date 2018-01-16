@@ -20,6 +20,9 @@ ratp-master/ratpApp :~$ ng serve
 ```
 * go to http://localhost:4200
 
+#### Live
+
+* on http://ratp.mejdan.fr/
 
 ##### Copyright (c) 2018 [nadjem medjdoub](nadjem.me)
 
